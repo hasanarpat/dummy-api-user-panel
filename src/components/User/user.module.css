@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid black;
+  background: var(--bgSoftColor);
+  padding: 10px;
+  transition: background 0.25s ease-in-out;
+}
+
+.container:hover {
+  background: var(--bgColor);
+}
+.userDetails {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.avatar {
+  object-fit: cover;
+}
+.user {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

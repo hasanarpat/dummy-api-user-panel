@@ -1,0 +1,21 @@
+.container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--textSoftColor);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  margin-left: auto;
+  font-size: 18px;
+}
