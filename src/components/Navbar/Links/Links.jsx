@@ -11,6 +11,7 @@ const Links = ({ links }) => {
         <Link
           href={link.path}
           className={`${pathName == link.path && styles.active} ${styles.link}`}
+          key={link.path}
         >
           {link.title}
         </Link>

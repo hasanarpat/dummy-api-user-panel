@@ -1,7 +1,12 @@
+const appId = process.env.NEXT_PUBLIC_APP_ID;
 export async function fetchUsers() {
   try {
     const response = await fetch("https://dummyapi.io/data/v1/user", {
-      headers: { "app-id": process.env.APP_ID },
+      headers: { "app-id": appId },
+      cache: "default",
+      next: {
+        revalidate: 3600,
+      },
     });
     return response.json();
   } catch (error) {
@@ -12,7 +17,7 @@ export async function fetchUsers() {
 export async function fetchUser(id) {
   try {
     const response = await fetch(`https://dummyapi.io/data/v1/user/${id}`, {
-      headers: { "app-id": process.env.APP_ID },
+      headers: { "app-id": appId },
     });
     return response.json();
   } catch (error) {
@@ -23,11 +28,12 @@ export async function fetchUser(id) {
 export async function fetchDeleteRequest(id) {
   try {
     const response = await fetch(`https://dummyapi.io/data/v1/user/${id}`, {
-      headers: { "app-id": process.env.APP_ID },
       method: "DELETE",
+      headers: {
+        "app-id": appId,
+      },
     });
-    const returnValue = await response.json();
-    console.log(returnValue);
+    console.log(await response.json());
   } catch (error) {
     console.log(error);
   }

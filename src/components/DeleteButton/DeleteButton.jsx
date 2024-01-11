@@ -1,11 +1,13 @@
 "use client";
 
 import { fetchDeleteRequest } from "@/lib/fetch";
+import { useRouter } from "next/navigation";
 
 const DeleteButton = ({ id }) => {
+  const router = useRouter();
   const handleDelete = async () => {
-    const response = await fetchDeleteRequest(id);
-    console.log(response);
+    await fetchDeleteRequest(id);
+    router.refresh();
   };
   return (
     <>
